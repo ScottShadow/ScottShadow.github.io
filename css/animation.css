@@ -1,0 +1,14 @@
+/* animations.css */
+
+/* Initial hidden state */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Visible state for when the observer triggers */
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}

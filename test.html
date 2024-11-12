@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Page Scroll with GSAP</title>
+    <style>
+        /* Basic Reset and Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            overflow-x: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .section {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+            color: #fff;
+        }
+
+        /* Specific Background Colors */
+        .section1 {
+            background-color: #3498db;
+        }
+
+        /* Blue */
+        .section2 {
+            background-color: #2ecc71;
+        }
+
+        /* Green */
+        .section3 {
+            background-color: #e74c3c;
+        }
+
+        /* Red */
+        .section4 {
+            background-color: #9b59b6;
+        }
+
+        /* Purple */
+        .section5 {
+            background-color: #f1c40f;
+        }
+
+        /* Yellow */
+    </style>
+</head>
+
+<body>
+
+    <!-- Sections with Specific Background Color Classes -->
+    <div class="section section1">Section 1</div>
+    <div class="section section2">Section 2</div>
+    <div class="section section3">Section 3</div>
+    <div class="section section4">Section 4</div>
+    <div class="section section5">Section 5</div>
+
+    <!-- GSAP and ScrollTrigger Scripts with Defer -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js" defer></script>
+    <script defer>
+        document.addEventListener("DOMContentLoaded", () => {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Select all sections except the first one for fade-in
+            const sections = document.querySelectorAll(".section");
+
+            sections.forEach((section, index) => {
+                if (index === 0) {
+                    gsap.set(section, {
+                        opacity: 1, scrollTrigger: {         // Set ScrollTrigger options
+                            trigger: section,
+                            start: "top top",      // Start when section reaches top
+                            end: "+=100%",         // End when section scrolls out
+                            scrub: false,           // Smooth scroll effect
+                            pin: true,             // Pin each section
+                            pinSpacing: false      // No extra space after pinning
+                        }
+                    }); // Ensure the first section is fully visible
+                } else {
+                    // Apply ScrollTrigger to all sections after the first
+                    gsap.fromTo(section,
+                        { opacity: 0 },            // Start with opacity 0
+                        {
+                            opacity: 1,              // Fade in to full opacity
+                            duration: 1,             // Duration of fade
+                            scrollTrigger: {         // Set ScrollTrigger options
+                                trigger: section,
+                                start: "top top",      // Start when section reaches top
+                                end: "+=100%",         // End when section scrolls out
+                                scrub: false,           // Smooth scroll effect
+                                pin: true,             // Pin each section
+                                pinSpacing: false      // No extra space after pinning
+                            }
+                        });
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
