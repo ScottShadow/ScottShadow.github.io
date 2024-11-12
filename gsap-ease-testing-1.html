@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            overflow: hidden;
+            background-color: white;
+        }
+
+        .page-wrapper {
+            display: block;
+            height: 100vh;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: aqua;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 10%;
+            top: 50%;
+        }
+
+        .box2 {
+            background-color: royalblue;
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 40%;
+            top: 20%;
+        }
+
+        .heading1 {
+            width: 100rem;
+            height: 100rem;
+            position: absolute;
+            left: 95%;
+            top: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <div class="box">
+            <p>hello</p>
+            <p>son</p>
+        </div>
+        <div class="box2"> </div>
+        <div class="heading1">
+            <h1>hello</h1>
+        </div>
+    </div>
+    <!-- GSAP core library -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EasePack.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+    <script src="gsap-ease-testing-1.js" defer></script>
+</body>
+
+</html>
