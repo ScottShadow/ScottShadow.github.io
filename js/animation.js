@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     trigger: ".hero", // Set the trigger element
     start: "20% 20%", // Start animation when .greetings reaches this position
     end: "80% top", // Define the endpoint (optional)
-    markers: true, // Debug markers for scroll positions
+    markers: false, // Debug markers for scroll positions
     scrub: true,
     animation: greetingsAnimation,
     onLeave: () => { helloAnimation.play(); console.log("animation starting") },
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ScrollTrigger.create({
     trigger: ".end",
     start: "top top",
-    markers: true,
+    markers: false,
     id: "intro_marker",
     animation: intro,
     onEnter: () => intro.play(),
