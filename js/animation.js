@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     borderRadius: "30px",
     padding: "10px",
     margin: "0px 0px 0px 0px",
-    backgroundColor: "inherit",
+    backgroundColor: "black",
     /* containerAnimation: turn_bg, */
     ease: "none"
   });
@@ -62,12 +62,15 @@ document.addEventListener("DOMContentLoaded", () => {
     opacity: 0,
     x: 500,
     duration: 1,
-  }, 0).to(".one", {
+  }, 0).to(".instr", {
+    opacity: 0,
+    duration: 1,
+  }).to(".one", {
     delay: 1,
     opacity: 0,
     y: -300,
     duration: 1,
-  }).from(".two", {
+  }, "<-1").from(".two", {
     opacity: 0,
     y: 500,
     duration: 1,
