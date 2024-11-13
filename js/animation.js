@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ease: "none",
   }).to(".greetings", {
     duration: 0.5,
-    fontSize: "1rem",
-    y: -100,
+    fontSize: "20px",
+    top: "1vh",
     ease: "none"
   }).to(".greetings", {
     duration: 0.2,
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
     trigger: ".hero", // Set the trigger element
     start: "20% 20%", // Start animation when .greetings reaches this position
     end: "80% top", // Define the endpoint (optional)
-    markers: false, // Debug markers for scroll positions
+    markers: true, // Debug markers for scroll positions
     scrub: true,
     animation: greetingsAnimation,
     onLeave: () => { helloAnimation.play(); console.log("animation starting") },
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ScrollTrigger.create({
     trigger: ".end",
     start: "top top",
-    markers: false,
+    markers: true,
     id: "intro_marker",
     animation: intro,
     onEnter: () => intro.play(),

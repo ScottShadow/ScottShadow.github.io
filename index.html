@@ -8,7 +8,7 @@
     <style>
         body {
             background-color: black;
-            width: 100%;
+            width: 100vw;
             height: 100%;
             overflow-x: hidden;
             color: whitesmoke;
@@ -20,9 +20,9 @@
         .greetings {
             width: auto;
             height: auto;
-            font-size: 10vw;
+            font-size: 7vw;
             position: fixed;
-            top: 15%;
+            top: 20%;
             left: 1%;
             display: flex;
             justify-content: center;
@@ -56,34 +56,56 @@
             position: fixed;
             top: 15%;
             left: 1%;
-            font-size: 10vw;
+            font-size: 15vw;
         }
 
         .two {
-            font-size: 18vw;
+            font-size: 4vw;
         }
 
         .coming {
-            font-size: 9vw;
+            font-size: 3vw;
             border: 2px solid greenyellow;
             border-radius: 10px;
             align-items: center;
             align-content: center;
             top: 50%;
-            left: 35%;
-
-        }
-
-        .egg {
-            font-size: 8vw;
-            top: 0%;
-            left: 45%;
-        }
-
-        .instr {
-            font-size: 8vw;
-            top: 0%;
             left: 30%;
+            margin: 10px 10px 10px 10px;
+
+        }
+
+        .instr,
+        .egg {
+            font-size: 3vw;
+            top: 2%;
+            left: 35%;
+        }
+
+        @media (max-width: 768px) {
+
+            /* Reduce font size for smaller screens */
+            .greetings {
+                font-size: 8vw;
+                top: 10%;
+            }
+
+            .intro {
+                font-size: 5vw;
+            }
+
+            .one,
+            .two,
+            .three,
+            .egg {
+                font-size: 14vw;
+            }
+
+            .coming,
+            .instr {
+                font-size: 4vw;
+                margin: 10px 10px 10px 10px;
+            }
         }
     </style>
 </head>
