@@ -27,11 +27,14 @@
             align-items: center;
             font-size: 3em;
             color: #fff;
+            opacity: 0;
         }
 
         /* Specific Background Colors */
         .section1 {
             background-color: #3498db;
+            opacity: 1;
+            translate: 0 0;
         }
 
         /* Blue */
@@ -54,6 +57,17 @@
             background-color: #f1c40f;
         }
 
+        .hero-section {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+            color: #fff;
+            background-color: #f1c40f;
+        }
+
         /* Yellow */
     </style>
 </head>
@@ -61,11 +75,15 @@
 <body>
 
     <!-- Sections with Specific Background Color Classes -->
+    <div class="hero-section">
+        <h1>One Page Scroll with GSAP</h1>
+    </div>
     <div class="section section1">Section 1</div>
     <div class="section section2">Section 2</div>
     <div class="section section3">Section 3</div>
     <div class="section section4">Section 4</div>
     <div class="section section5">Section 5</div>
+    <div class="section"></div>
 
     <!-- GSAP and ScrollTrigger Scripts with Defer -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" defer></script>
@@ -78,34 +96,22 @@
             const sections = document.querySelectorAll(".section");
 
             sections.forEach((section, index) => {
-                if (index === 0) {
-                    gsap.set(section, {
-                        opacity: 1, scrollTrigger: {         // Set ScrollTrigger options
+                // Apply ScrollTrigger to all sections after the first
+                gsap.to(section,
+                    {
+                        opacity: 1,              // Fade in to full opacity
+                        duration: 1,             // Duration of fade
+                        scrollTrigger: {         // Set ScrollTrigger options
                             trigger: section,
-                            start: "top top",      // Start when section reaches top
+                            toogleActions: "restart none reverse reset",
+                            start: "bottom bottom",     // Start when section reaches top
                             end: "+=100%",         // End when section scrolls out
-                            scrub: false,           // Smooth scroll effect
+                            scrub: true,           // Smooth scroll effect
                             pin: true,             // Pin each section
-                            pinSpacing: false      // No extra space after pinning
+                            pinSpacing: false,    // No extra space after pinning
+                            anticipatePin: 1,     // Anticipate pinning by 1 section
                         }
-                    }); // Ensure the first section is fully visible
-                } else {
-                    // Apply ScrollTrigger to all sections after the first
-                    gsap.fromTo(section,
-                        { opacity: 0 },            // Start with opacity 0
-                        {
-                            opacity: 1,              // Fade in to full opacity
-                            duration: 1,             // Duration of fade
-                            scrollTrigger: {         // Set ScrollTrigger options
-                                trigger: section,
-                                start: "top top",      // Start when section reaches top
-                                end: "+=100%",         // End when section scrolls out
-                                scrub: false,           // Smooth scroll effect
-                                pin: true,             // Pin each section
-                                pinSpacing: false      // No extra space after pinning
-                            }
-                        });
-                }
+                    });
             });
         });
     </script>
